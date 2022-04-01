@@ -40,6 +40,8 @@ Additional considerations:
 -workshop-id
 -user_id
 
+remember
+the smaller thing gets the id 
 
 ## Auth 
 - comes with the template
