@@ -4,7 +4,7 @@ const SUPABASE_URL = 'https://zwaquhawqyttxdrcbhxx.supabase.co';
 
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-console.log(client);
+console.log(client.auth);
 
 
 export function getUser() {
@@ -44,9 +44,9 @@ export async function logout() {
 
 
 export async function getWorkshops() {
-    const response = client
+    const response = await client
         .from ('workshops') //grab workshops table from sp 
-        .select('*'); // select all columns from workshops tbl, then link together with the participants, and in participants  tbl, we want all columns
+        .select('*, participants (*)'); // select all columns from workshops tbl, then link together with the participants, and in participants  tbl, we want all columns
     console.log(response);
     return checkError(response);
 
