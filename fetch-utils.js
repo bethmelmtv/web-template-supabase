@@ -1,7 +1,5 @@
 
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3YXF1aGF3cXl0dHhkcmNiaHh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDc1NTE5ODEsImV4cCI6MTk2MzEyNzk4MX0.FnfsYqPR7GPz5COh7itHiDt6as7-F__iU57NyG7IKyE';
-
-
 const SUPABASE_URL = 'https://zwaquhawqyttxdrcbhxx.supabase.co';
 
 
@@ -48,20 +46,20 @@ export async function logout() {
 export async function getWorkshops() {
     const response = client
         .from ('workshops') //grab workshops table from sp 
-        .select('*, participants (*)'); // select all columns from workshops tbl, then link together with the participants, and in participants  tbl, we want all columns
-    console.log(response);
-    return response.body;
-
-}
-
-export async function getParticipants() {
-    const response = client
-        .from('participants')
-        .select('*')
-        .match ({ user_id: client.auth.session().id });
+        .select('*'); // select all columns from workshops tbl, then link together with the participants, and in participants  tbl, we want all columns
     console.log(response);
     return checkError(response);
+
 }
+
+// export async function getParticipants() {
+//     const response = client
+//         .from('participants')
+//         .select('*')
+//         .match ({ user_id: client.auth.session().id });
+//     console.log(response);
+//     return checkError(response);
+// }
 
 
 

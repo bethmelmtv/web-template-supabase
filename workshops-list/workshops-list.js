@@ -1,4 +1,7 @@
-import { checkAuth, getWorkshops, logout, getParticipants } from '../fetch-utils.js';
+import { checkAuth, getWorkshops, logout } from '../fetch-utils.js';
+
+
+// const workshops = document.querySelector('.workshops');
 
 checkAuth();
 
@@ -12,10 +15,7 @@ logoutButton.addEventListener('click', () => {
 
 window.addEventListener('load', async () => {
 
-    const participants = await getParticipants();
     const workshops = await getWorkshops();
-
-    console.log('participants', participants);
     console.log('workshops', workshops);
 
 });
