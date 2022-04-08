@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="gutter-right logo">
+
+        <a href = '../workshops-list'/> All Workshops</a>
+
+        </div>
+    </header>    
+    <button id="logout">Logout</button>
+    <main>
+        <h1>create a participant</h1>
+
+    <form> 
+        <label>
+        Participant Name
+        <input name="participant-name"
+        </label>
+
+        <label>Choose a Workshop</label>
+        <select name="workshop-id">
+            <option value="3">Introduction to Plant Conservancy</option>
+            <option value="4">Nature Journaling</option>
+            <option value ="5">Introduction to Plant Terminology</option>
+            <option value ="6">History of Hollywood Cinema</option>
+            <option value="7">How to Draw a Forest</option>
+            <option value="2">Bay Area History of Ceramics</option>
+        </select>
+        <button class="submit">Submit</button>
+    </form>
+
+    </label>
+    </main>
+    <footer>
+        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
+    </footer>
+    <script type="module" src="./create.js"></script>
+</body>
+
+</html>
