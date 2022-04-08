@@ -47,7 +47,7 @@ form.addEventListener('submit', async (event) => {
     //calls data from form
     const data = new FormData(form);
 
-    
+
     await editParticipant(participant.id, data.get('participant-name'), data.get('workshop-id'));
 
     console.log(nameEl.value);
@@ -57,4 +57,4 @@ form.addEventListener('submit', async (event) => {
 });
 
 
-  
+// 
