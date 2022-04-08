@@ -16,11 +16,13 @@ logoutButton.addEventListener('click', () => {
 
 
 window.addEventListener('load', async () => {
+    //calls getworkshops function 
     const workshops = await getWorkshops();
     for (let workshop of workshops) {
+        console.log(workshop);
         const workshopElement = renderWorkshop(workshop);
-        workshopsDiv.append(workshopElement);
         const participantEl = workshop.participant;
-        console.log(participantEl);
+        workshopsDiv.append(workshopElement, participantEl);
     }
+    return workshopsDiv;
 });

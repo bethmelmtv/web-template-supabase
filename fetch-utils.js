@@ -4,7 +4,7 @@ const SUPABASE_URL = 'https://zwaquhawqyttxdrcbhxx.supabase.co';
 
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-console.log(client.auth);
+// console.log(client.auth.session);
 
 
 export function getUser() {
@@ -47,21 +47,54 @@ export async function getWorkshops() {
     const response = await client
         .from ('workshops') //grab workshops table from sp 
         .select('*, participants (*)'); // select all columns from workshops tbl, then link together with the participants, and in participants  tbl, we want all columns
-    console.log(response);
     return checkError(response);
-
 }
 
-// export async function getParticipants() {
-//     const response = client
+
+export async function createParticipant(newParticipantName, workshopid) {
+    const response = await client
+        .from('participants')
+        .insert({
+            name: newParticipantName, 
+            workshop_id: workshopid,
+        });
+
+    return checkError(response);
+}
+
+// export async function editParticipant(id) {
+//     const response = await client
 //         .from('participants')
-//         .select('*')
-//         .match ({ user_id: client.auth.session().id });
-//     console.log(response);
+//         .update({
+//             workshop_id: 'workshop_id' })
+//         .match({ id: id });
+
 //     return checkError(response);
 // }
 
 
+export async function getParticipant(someId){
+    const response = await client 
+        .from('participants')
+        .select('*')
+        .match({ id: someId })
+        .single();
+
+    return checkError(response);
+}
+
+
+export async function editParticipant(someId, name, workshopId) {
+    const response = await client
+        .from('participants')
+        .update({ 
+            name: name,
+            workshop_id: workshopId
+        })
+        .match({ id: someId });
+
+    return checkError(response);
+}
 
 function checkError({ data, error }) {
     return error ? console.error(error) : data;

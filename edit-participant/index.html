@@ -13,36 +13,43 @@
     <title>Document</title>
 </head>
 
-<a>
-
-
+<body>
     <header>
         <div class="gutter-right logo">
+
+        <a href = '../workshops-list'/> All Workshops</a>
+
         </div>
-    </header>  
-    
-    
+    </header>    
     <button id="logout">Logout</button>
-
-    <a href = '../create'/> Create </a>
-    
     <main>
+        <h1>edit</h1>
 
-        <div class="workshops">
-            <h1>All Workshops</h1>
+    <form> 
+        <label>
+        Participant Name
+        <input name="participant-name"/>
+        </label>
+
+        <label>
+
+
+            Choose a Workshop
+        <select name="workshop-id">
+            
+        </select>
         
-        </div>
+        </label>
+        <button class="submit">Submit</button>
 
+    </form>
+
+    </label>
     </main>
-
-
-
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
     <script type="module" src="./edit-participant.js"></script>
-
-
 </body>
 
 </html>
